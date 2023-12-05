@@ -8,9 +8,8 @@ import (
 	"strings"
 )
 
-
 func main() {
-  input := readInputFile();
+	input := readInputFile()
 	lines := strings.Split(input, "\n")
 
 	sum := 0
@@ -25,28 +24,27 @@ func main() {
 	fmt.Println(sum)
 }
 
-
 func restoreValue(entry string) int {
 	r := regexp.MustCompile(`(\d)`)
 	matches := r.FindAllString(entry, -1)
 
 	if len(matches) > 0 {
-		value, err1 := strconv.Atoi(matches[0] + matches[len(matches) - 1])
-	
+		value, err1 := strconv.Atoi(matches[0] + matches[len(matches)-1])
+
 		if err1 != nil {
-			return 0;
+			return 0
 		}
 
-		return value 
+		return value
 	} else {
-		return 0;
+		return 0
 	}
 }
 
 func readInputFile() string {
 	data, err := os.ReadFile("input.txt")
 	if err != nil {
-			panic(err)
+		panic(err)
 	}
 
 	return string(data)
