@@ -33,21 +33,4 @@ function evalLine(line, index) {
 
   return lineSum;
 }
-
-function isNumberValid({value, indexStart, indexEnd, lineNumber}) {
-  const linesToScan = [];
-  const start = Math.max(0, indexStart - 1);
-  const end = Math.min(indexEnd + 1, lines[lineNumber].length);
-
-  if (lineNumber >= 1) {
-    linesToScan.push(lines[lineNumber - 1].slice(start, end));
-  }
-
-  linesToScan.push(lines[lineNumber].slice(start, end));
-
-  if (lineNumber < lines.length - 1) {
-    linesToScan.push(lines[lineNumber + 1].slice(start, end));
-  }
-
-  return !!linesToScan.join("").match(/[^A-Za-z0-9.]/);
-}
+// wip
